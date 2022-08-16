@@ -6,7 +6,7 @@ It is a upgraded version of cluster learning-assisted directed evolution (CLADE)
 
 - [Installment](#installment)
 - [Usage](#usage)
-  * [Encoding](#encoding)
+  * [Evolutionary scores](#evolution)
   * [Clustering Sampling](#cluster-learning-sampling)
   * [CLADE2.0](#CLADE2.0)
   * [DEMO](#DEMO)
@@ -37,6 +37,14 @@ Input data for dataset `$dataset` needs to be stored in `Input/$dataset/`. They 
 
 4. `Mldeparameter.csv`: parameters for MLDE, stored in `Input/`
 
+## Evolutionary scores
+1. [DeepSequence VAE](https://github.com/debbiemarkslab/DeepSequence) is implemented by python 2.7 using THEANO. Use conda environment `scirpts/deep_sequence.yml` to set up the environment. Script for training VAE model is given in `scripts/script_vae_train.sub`. Script for caculation ELBO score is given in `scripts/script_vae.sub`.
+
+2. EVmutation and MSA Transformer are obtained from implementation in [MLDE](https://github.com/fhalab/MLDE#building-an-alignment-for-msa-transformer).
+
+3. HMM scores can be generated using `scripts/script_hmm.sub`
+
+4. ESM-1v score can be generated using `scripts/script_esm.sub`
 
 ## Clustering Sampling
 `clustering_sampling.py` Use hierarchical clustering to generate training data. 
@@ -90,4 +98,4 @@ The supervised learning package MLDE and zero-shot predictions can be found in: 
 ## CLADE package
 It can be found [here](https://github.com/WeilabMSU/CLADE) with paper: [Qiu Yuchi, Jian Hu, Guo-Wei Wei, "Cluster learning-assisted directed evolution" Nature Computational Science (2021)](https://www.nature.com/articles/s43588-021-00168-y).
 ## Reference
-This work in under review.
+This work is under review.
