@@ -1,0 +1,14 @@
+#!/bin/bash 
+#SBATCH --time=0-23:59:00  
+#SBATCH --nodes=1 
+#SBATCH --ntasks=1 
+#SBATCH --cpus-per-task=1 
+#SBATCH --mem-per-cpu=32G
+#SBATCH --job-name ESM
+#SBATCH --gres=gpu:1
+
+python3 src/esm_inference.py PhoQ --model esm1v_1
+python3 src/esm_inference.py PhoQ --model esm1v_2
+python3 src/esm_inference.py PhoQ --model esm1v_3
+python3 src/esm_inference.py PhoQ --model esm1v_4
+python3 src/esm_inference.py PhoQ --model esm1v_5

@@ -1,0 +1,26 @@
+#!/bin/bash 
+#SBATCH --time=0-03:59:00  
+#SBATCH --nodes=1 
+#SBATCH --ntasks=1 
+#SBATCH --cpus-per-task=1 
+#SBATCH --mem-per-cpu=32G
+#SBATCH --job-name vae
+#SBATCH --gres=gpu:1
+#SBATCH --array=0-160 # job array index
+module purge 
+
+
+source activate deep_sequence
+
+
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py PhoQ --seed 1 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py PhoQ --seed 2 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py PhoQ --seed 3 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py PhoQ --seed 4 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py PhoQ --seed 5 --batch_id $[$SLURM_ARRAY_TASK_ID]
+
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py GB1  --seed 1 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py GB1  --seed 2 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py GB1  --seed 3 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py GB1  --seed 4 --batch_id $[$SLURM_ARRAY_TASK_ID]
+THEANO_FLAGS='floatX=float32,device=cuda' python src/vae_inference.py GB1  --seed 5 --batch_id $[$SLURM_ARRAY_TASK_ID]

@@ -1,0 +1,16 @@
+#!/bin/bash 
+#SBATCH --time=0-23:59:00  
+#SBATCH --nodes=1 
+#SBATCH --ntasks=1 
+#SBATCH --cpus-per-task=1 
+#SBATCH --mem-per-cpu=32G
+#SBATCH --job-name HMM
+#SBATCH --gres=gpu:1
+
+
+#hmmer packages are installed in home directory.  
+
+dataset=PhoQ
+./hmmbuild Input/PhoQ/PhoQ.hmm Input/$dataset/$dataset.a2m
+./hmmsearch --tblout Input/$dataset/$dataset.tblout Input/$dataset/$dataset.hmm Input/$dataset/$dataset_seqs.fasta
+python3 src/hmm_tblout2np.py Input/$dataset/$dataset.tblout Input/$dataset/hmm.npy
