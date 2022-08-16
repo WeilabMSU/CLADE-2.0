@@ -27,7 +27,7 @@ Other packages required:
 4. pandas
 5. pickle
 
-Input data for dataset `$dataset` needs to be stored in `Input/$dataset/`. They include:
+Input data for dataset `$dataset` needs to be stored in `Input/$dataset/`. Run `./download_data_demo.sh` to obtain all required input data. They include:
 
 1. `$dataset.xlsx`: data for sequences and their experimental fitness. 
 
