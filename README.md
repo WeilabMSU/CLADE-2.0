@@ -8,7 +8,7 @@ It is a upgraded version of cluster learning-assisted directed evolution (CLADE)
 - [Usage](#usage)
   * [Encoding](#encoding)
   * [Clustering Sampling](#cluster-learning-sampling)
-  * [CLADE](#CLADE)
+  * [CLADE2.0](#CLADE2.0)
   * [DEMO](#DEMO)
 - [Sources](#sources) 
 - [Reference](#reference) 
@@ -62,7 +62,7 @@ $ python3 clustering_sampling.py --help
 `clustering.npz`: Indecis of variants in each cluster.
 ### Examples: (in our work in CLADE 2.0, we always set the second K_increment as 0. In that case, the first round and the second round of sampling are performed on the same clusters to enhance the accuracy. The sampling probabilities in first round are driven by evolutionary scores, and that in the second round are given by the labeled data fitness):  
 `python3 cluster_sampling.py 10 0 10 10`
-## CLADE
+## CLADE2.0
 `CLADE2.py` Run full process of CLADE. Run `cluster_sampling.py` and downstream supervised learning (MLDE).
 
 ### Inputs
