@@ -45,7 +45,7 @@ $ python3 clustering_sampling.py --help
 ```
 ### Inputs
 #### positional arguments:  
-`K_increments` Increments of clusters at each hierarchy; Input a list; For example: --K_increments 30 0 30 30. (In our work in CLADE 2.0, we always set the second K_increment as 0. In that case, the first round and the second round of sampling are performed on the same clusters to enhance the accuracy. The sampling probabilities in first round are driven by evolutionary scores, and that in the second round are given by the labeled data fitness) \
+`K_increments` Increments of clusters at each hierarchy; Input a list; For example: --K_increments 10 0 10 10.\
 #### optional arguments: 
 `--dataset DATASET`     Name of the data set. Options: 1. GB1; 2. PhoQ. \
 `--encoding_ev ENCODING_EV` encoding method used for initial sampling; Default: zero"
@@ -61,6 +61,7 @@ $ python3 clustering_sampling.py --help
 `InputValidationData.csv`: Selected labeled variants. Training data for downstream supervised learning. Default will generate 384 labeled variants with batch size 96.
 `clustering.npz`: Indecis of variants in each cluster.
 ### Examples:  
+In our work in CLADE 2.0, we always set the second K_increment as 0. In that case, the first round and the second round of sampling are performed on the same clusters to enhance the accuracy. The sampling probabilities in first round are driven by evolutionary scores, and that in the second round are given by the labeled data fitness:
 `python3 cluster_sampling.py 10 0 10 10`
 ## CLADE2.0
 `CLADE2.py` Run full process of CLADE. Run `cluster_sampling.py` and downstream supervised learning (MLDE).
